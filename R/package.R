@@ -1,5 +1,4 @@
-.First <-
-function () 
-{
-    options(browserNLdisabled = TRUE, deparse.max.lines = 2)
-}
+#' @importFrom GOstats hyperGTest summary
+#' @importClassesFrom Category GOHyperGParams 
+#' @importFrom Category ontology<-
+NULL

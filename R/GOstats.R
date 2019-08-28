@@ -1,7 +1,31 @@
+#' Run GOstats functional enrichment analysis for a list of genes.
+#' 
+#' Runs the conditional GOstats algorithm for a set of genes in a given 
+#' universe. This function runs the algorithm for multiple ontologies, and returns 
+#' a table of merged results.
+#' 
+#' @param genes The genes of interest; ie the balls drawn from the urn in the
+#' classical hypergeometric analogy.
+#' @param universe The background set of genes. This corresponds to the bag
+#' of balls in the classical hypergeometric analogy.
+#' @param annotation_package An organism annotation package used by the GOstats
+#' functions internally to annotate genes with GO terms and to traverse the GO 
+#' hierarchy. eg, for humans, org.Hs.eg.db would be suitable and would require
+#' Entrez IDs for the \code{genes} and \code{universe} arguments.
+#' @param ontologies The ontologies to test. Options are "BP" 
+#' (biological process), "CC" (cellular component) and "MF" 
+#' (molecular function).
+#' @param min_size The minimum size of GO terms to include. It is advised to set
+#' this to at least 2; otherwise you will observe quite a few terms which are 
+#' comprised of only a single gene.
+#' @param mdlinks Should the GO IDs be hyperlinked using Markdown in the output
+#' table?
+#' @param p_value p-value cutoff. This is important to set a priori, as it 
+#' affects the conditional algorithm.
 #' @export
 go_analysis <- function(
-    entrez_genes,
-    entrez_universe,
+    genes,
+    universe,
     annotation_package,
     ontologies = c("BP", "CC", "MF"),
     min_size = 3,
@@ -10,11 +34,18 @@ go_analysis <- function(
     ) {
 
   ontologies <- match.arg(ontologies, several.ok = TRUE)
+  if (!require(annotation_package, character.only = TRUE)) {
+    stop(
+      paste0(
+        "You must first install the annotation_package.
+        Try BiocManager::install(\"", annotation_package, "\")")
+    )
+  }
   ghgp <- new(
     "GOHyperGParams",
-    geneIds = entrez_genes,
+    geneIds = genes,
     annotation = annotation_package,
-    universeGeneIds = entrez_universe,
+    universeGeneIds = universe,
     conditional = TRUE,
     ontology = ontologies[[1]],
     minSizeCutoff = min_size,
@@ -26,7 +57,7 @@ go_analysis <- function(
       hyperGTest(ghgp)
     }
   )
-  out <- do.call(rbind, lapply(go_res, process_res))
+  out <- do.call(rbind, lapply(go_res, process_go_res))
   out[order(out[["Pvalue"]]), ]
 }
 
