@@ -1,9 +1,20 @@
 Package: rvallejo
-Type: Package
-Title: What the package does (short line)
-Version: 1.0
+Title: Shared analysis code and tools for the Vallejos Group
+Version: 0.0.0.9000
 Date: 2019-08-28
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Authors@R: person(
+    "Alan", "O'Callaghan",
+    email = "alan.ocallaghan@outlook.com",
+    role = c("aut", "cre"))
+Description: 
+    Common tools for statistical analysis and programming for the Vallejos 
+    Group. For example, enrichment analysis, plotting, etc.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Suggests:
+    testthat,
+    here
+RoxygenNote: 6.1.1
+URL: https://github.com/VallejosGroup/rvallejo
+BugReports: https://github.com/VallejosGroup/rvallejo/issues
