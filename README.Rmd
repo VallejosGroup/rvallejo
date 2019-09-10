@@ -13,16 +13,17 @@ knitr::opts_chunk$set(
 )
 ```
 
-# rvallejo
+# rvallejos
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.org/VallejosGroup/rvallejo.svg?branch=master)](https://travis-ci.org/VallejosGroup/rvallejo)
-[![Codecov test coverage](https://codecov.io/gh/VallejosGroup/rvallejo/branch/master/graph/badge.svg)](https://codecov.io/gh/VallejosGroup/rvallejo?branch=master)
+[![Travis build status](https://travis-ci.org/VallejosGroup/rvallejos.svg?branch=master)](https://travis-ci.org/VallejosGroup/rvallejos)
+[![Codecov test coverage](https://codecov.io/gh/VallejosGroup/rvallejos/branch/master/graph/badge.svg)](https://codecov.io/gh/VallejosGroup/rvallejos?branch=master)
 <!-- badges: end -->
 
 ## Installation
 
-You can install the released version of rvallejo from [CRAN](https://CRAN.R-project.org) with:
+You can install the latest version of rvallejos from 
+[github](https://github.com/VallejosGroup/rvallejos)
 
 ``` r
-install_github("VallejosGroup/rvallejo")
+install_github("VallejosGroup/rvallejos")
 ```
