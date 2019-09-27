@@ -65,8 +65,8 @@ go_analysis <- function(
 
 
 process_go_res <- function(res, min_size = 2, mdlinks = TRUE) {
-  tab <- summary(res)
-  tab <- tab[tab[["Count"]] > min_size]
+  tab <- GOstats::summary(res)
+  tab <- tab[tab[["Count"]] > min_size, ]
   ontology <- gsub("GO(\\w+)ID", "\\1", colnames(tab)[[1]])
   colnames(tab)[[1]] <- "GOID"
   if (mdlinks) {
