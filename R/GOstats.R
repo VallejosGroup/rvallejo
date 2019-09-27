@@ -58,14 +58,15 @@ go_analysis <- function(
       Category::hyperGTest(ghgp)
     }
   )
-  out <- do.call(rbind, lapply(go_res, process_go_res))
+  out <- do.call(rbind, lapply(go_res, process_go_res, min_size = min_size))
   out[order(out[["Pvalue"]]), ]
 }
 
 
 
-process_go_res <- function(res, mdlinks = TRUE) {
+process_go_res <- function(res, min_size = 2, mdlinks = TRUE) {
   tab <- summary(res)
+  tab <- tab[tab[["Count"]] > min_size]
   ontology <- gsub("GO(\\w+)ID", "\\1", colnames(tab)[[1]])
   colnames(tab)[[1]] <- "GOID"
   if (mdlinks) {
