@@ -1,4 +1,4 @@
-Package: rvallejo
+Package: rvallejos
 Title: Shared analysis code and tools for the Vallejos Group
 Version: 0.0.0.9000
 Date: 2019-08-28
@@ -13,13 +13,13 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 3.5)
-Imports: 
-    GOstats,
-    Category
 Suggests:
     testthat,
     here,
     org.Hs.eg.db,
+    GOstats,
+    Category,
+    BiocGenerics,
     covr
 RoxygenNote: 6.1.1
 URL: https://github.com/VallejosGroup/rvallejo

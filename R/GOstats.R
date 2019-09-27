@@ -5,9 +5,9 @@
 #' a table of merged results.
 #' 
 #' @param genes The genes of interest; ie the balls drawn from the urn in the
-#' classical hypergeometric analogy.
+#' classical hypergeometric analogy. Should be ENTREZ IDs.
 #' @param universe The background set of genes. This corresponds to the bag
-#' of balls in the classical hypergeometric analogy.
+#' of balls in the classical hypergeometric analogy. Should be ENTREZ IDs.
 #' @param annotation_package An organism annotation package used by the GOstats
 #' functions internally to annotate genes with GO terms and to traverse the GO 
 #' hierarchy. eg, for humans, org.Hs.eg.db would be suitable and would require
@@ -33,6 +33,7 @@ go_analysis <- function(
     p_value = 0.01
     ) {
 
+  library("GOstats")
   ontologies <- match.arg(ontologies, several.ok = TRUE)
   if (!require(annotation_package, character.only = TRUE)) {
     stop(
@@ -53,8 +54,8 @@ go_analysis <- function(
   )
   go_res <- lapply(ontologies, 
     function(ontology) {
-      ontology(ghgp) <- ontology
-      hyperGTest(ghgp)
+      Category::ontology(ghgp) <- ontology
+      Category::hyperGTest(ghgp)
     }
   )
   out <- do.call(rbind, lapply(go_res, process_go_res))
