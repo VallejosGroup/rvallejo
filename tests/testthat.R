@@ -1,4 +1,4 @@
-library(testthat)
-library(rvallejo)
+library("testthat")
+library("rvallejos")
 
-test_check("rvallejo")
+test_check("rvallejos")

@@ -1,6 +1,6 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-rvallejo
-========
+rvallejos
+=========
 
 <!-- badges: start -->
 [![Travis build
@@ -13,6 +13,6 @@ Installation
 ------------
 
 You can install the latest version of rvallejos from
-[github](https://www.github.com/VallejosGroup/rvallejos) with:
+[github](https://github.com/VallejosGroup/rvallejos)
 
     install_github("VallejosGroup/rvallejos")
