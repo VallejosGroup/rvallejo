@@ -28,10 +28,10 @@ months$full <- tolower(month.name)
 #'fixed.df <- fix_dates(bad.dates, c("some.dates", "some.more.dates"))
 #' @export
 fix_dates <- function(df, col.names) {
-  if (is.data.frame(df) == F) {
+  if (!is.data.frame(df)) {
     stop("df should be a dataframe object!")
   }
-  if (any(is.character(col.names) == F)) {
+  if (any(!is.character(col.names))) {
     stop("col.names should be a character vector!")
   }
 
