@@ -4,15 +4,22 @@
 \alias{go_analysis}
 \title{Run GOstats functional enrichment analysis for a list of genes.}
 \usage{
-go_analysis(genes, universe, annotation_package, ontologies = c("BP",
-  "CC", "MF"), min_size = 3, mdlinks = TRUE, p_value = 0.01)
+go_analysis(
+  genes,
+  universe,
+  annotation_package,
+  ontologies = c("BP", "CC", "MF"),
+  min_size = 3,
+  mdlinks = TRUE,
+  p_value = 0.01
+)
 }
 \arguments{
 \item{genes}{The genes of interest; ie the balls drawn from the urn in the
-classical hypergeometric analogy.}
+classical hypergeometric analogy. Should be ENTREZ IDs.}
 
 \item{universe}{The background set of genes. This corresponds to the bag
-of balls in the classical hypergeometric analogy.}
+of balls in the classical hypergeometric analogy. Should be ENTREZ IDs.}
 
 \item{annotation_package}{An organism annotation package used by the GOstats
 functions internally to annotate genes with GO terms and to traverse the GO 

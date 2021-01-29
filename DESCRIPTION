@@ -1,11 +1,15 @@
 Package: rvallejos
 Title: Shared analysis code and tools for the Vallejos Group
 Version: 0.0.0.9000
-Date: 2019-08-28
-Authors@R: person(
+Date: 2021-01-29
+Authors@R: c(person(
     "Alan", "O'Callaghan",
     email = "alan.ocallaghan@outlook.com",
-    role = c("aut", "cre"))
+    role = c("aut", "cre")),
+    person(
+    "Nathan","Constantine-Cooke",
+    email="nathan.constantine-cooke@ed.ac.uk",
+    role = "aut"))
 Description: 
     Common tools for statistical analysis and programming for the Vallejos 
     Group. For example, enrichment analysis, plotting, etc.
@@ -13,6 +17,8 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 3.5)
+Imports:
+    stringr
 Suggests:
     testthat,
     here,
@@ -21,6 +27,6 @@ Suggests:
     Category,
     BiocGenerics,
     covr
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1
 URL: https://github.com/VallejosGroup/rvallejos
 BugReports: https://github.com/VallejosGroup/rvallejos/issues
